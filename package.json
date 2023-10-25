@@ -17,21 +17,27 @@
     "@capacitor/haptics": "5.0.6",
     "@capacitor/keyboard": "5.0.6",
     "@capacitor/status-bar": "5.0.6",
+    "@fontsource/bai-jamjuree": "^5.0.8",
     "@ionic/react": "^7.0.0",
     "@ionic/react-router": "^7.0.0",
+    "@mui/x-charts": "^6.0.0-alpha.14",
     "@types/react-router": "^5.1.20",
     "@types/react-router-dom": "^5.3.3",
+    "d3": "^7.8.5",
     "ionicons": "^7.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^5.3.4",
-    "react-router-dom": "^5.3.4"
+    "react-router-dom": "^5.3.4",
+    "react-spring": "^9.7.3",
+    "swiper": "^10.3.1"
   },
   "devDependencies": {
     "@capacitor/cli": "5.4.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
+    "@types/d3": "^7.4.2",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-legacy": "^4.0.2",
@@ -42,6 +48,7 @@
     "jsdom": "^22.1.0",
     "typescript": "^5.1.6",
     "vite": "^4.3.9",
+    "vite-plugin-pwa": "^0.16.5",
     "vitest": "^0.32.2"
   },
   "description": "An Ionic project"

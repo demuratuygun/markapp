@@ -1,0 +1,21 @@
+
+.book-header-class {
+    background-color: #1D1F1D99;/*1d1d1d88 1199aa*/
+    backdrop-filter: blur(5px);
+    z-index: 999;
+    padding: 5vw 8vw 4vw 8vw;
+    color: #eeeeee;
+    font-size: 21px;
+    font-weight: bold;
+
+
+}
+
+.publisher-header {
+    color: #888888;
+    font-size: 18px;
+    padding: 0vw 8vw;
+    position: relative;
+    top: 17px;
+    z-index: 1000;
+}

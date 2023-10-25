@@ -1,0 +1,15 @@
+.fixed-header {
+ position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.ion-fab-button {
+  --background: #D9D9D911;
+  --background-activated: #D9D9D933;
+  --background-hover: #D9D9D922;
+  --border-radius: 14px;
+  --color: #E6E6E6;
+  box-shadow: 0px 0px 0px #ffffff00;
+}

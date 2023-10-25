@@ -1,0 +1,57 @@
+
+.to-middle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.numpad-display {
+  width: 200px;
+  height: 72px;
+  padding: 6px;
+  position: relative;
+  overflow: hidden;
+}
+
+.numpad-description {
+  position: absolute;
+  left: 0px;
+  bottom: 14px;
+  font-size: 20px;
+  color: #444444;
+  letter-spacing: -1px;
+  z-index: 0;
+}
+
+.numpad-number {
+  position: absolute;
+  right: 0px;
+  bottom: 7px;
+  color: #EEEEEE;
+  letter-spacing: -1px;
+  z-index: 0;
+  font-size: 50px;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-shadow: 1px 1px 2px #333333;
+}
+
+.numpad-grid {
+  margin: 0% 10%;
+  max-width: 230px;
+}
+
+
+.ion-fab-numpad-button {
+  --background: #292929;
+  --background-activated: #ffffff22;
+  --background-hover: #ffffff22;
+  --border-radius: 12px;
+  --color: #EBEBEB;
+  font-size: 20px;
+  font-weight: 600;
+  width: 60px;
+  height: 60px;
+  margin: 1px;
+  box-shadow: 0px 0px 0px #ffffff00;
+}

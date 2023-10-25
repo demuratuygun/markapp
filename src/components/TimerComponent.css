@@ -1,0 +1,85 @@
+.container {
+  width: 100%;
+  position: relative;
+}
+
+.slideing {
+  height: 36px;
+  position: absolute;
+  overflow: hidden;
+  right: 0;
+}
+
+.tick {
+  float: left;
+  margin-right: 24px;
+  width: 2px;
+  height: 24px;
+  background-color: #ffffff;
+
+}
+
+.ion-fab-button {
+  --background: #D9D9D911;
+  --background-activated: #D9D9D933;
+  --background-hover: #D9D9D922;
+  --border-radius: 14px;
+  --color: #E6E6E6;
+}
+
+
+
+
+
+.timer {
+  color: rgba(238, 238, 238, 0.79);
+  text-align: center;
+  font-family: 'Josefin Sans' serif;
+  font-size: 48px;
+  font-style: bold;
+  font-weight: 500;
+  padding: 0px;
+}
+
+.timeText {
+  box-shadow: 0px -15px 22px #6EF4B4;
+}
+
+.datepicker-timer-modal {
+  --width: fit-content;
+  --height: fit-content;
+  --border-radius: 6px;
+  --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+
+  
+}
+
+.timer-picker {
+  padding: 0px 0px;
+}
+
+.timer-container {
+  justify-items: center;
+  width: auto;
+  font-size: 800;
+}
+
+.num-box {
+  font-size: 52px;
+  width: 36px;
+  float: left;
+  font-weight: 300;
+}
+
+.num-box-second {
+  font-size: 32px;
+  font-weight: 600;
+  width: 22px;
+  float: right;
+  padding-top: 7px;
+}
+
+.button-left {
+  position: absolute;
+  left: 0;
+}

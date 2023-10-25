@@ -1,0 +1,123 @@
+.card-item-container {
+    display: flex;
+    align-items: baseline;
+    width: 100%;
+    
+}
+
+.card-item-middle {
+    flex-grow: 1;
+    white-space: pre-wrap;
+    margin-right: 4%;
+    padding: 0px;
+    margin: 0;
+}
+
+.card-header-text {
+   font-size: min( max(13px, 4.2vw), 20px );
+   font-weight: light;
+   margin-bottom: 0.6vw;
+
+}
+
+.card-description-text {
+    font-size: min( max(13px, 4.2vw), 20px );
+    font-weight: medium;
+    color: #8e8e8aaa;
+    
+}
+
+.card-item-left {
+    width: 3.2rem;
+    height: min( max(16px, 4.6vw), 22px );
+    font-size: min( max(13px, 4.2vw), 20px );
+    color: #ffffff77;
+    text-align: center;
+    margin-right: 1vw;
+    float: left;
+    
+}
+.card-item-left-text {
+    width: 3.2rem;
+    padding-top: 1px;
+    text-align: center;
+    
+}
+
+.card-item-right {
+    height: min( max(16px, 4.6vw), 22px );
+    width: 3.2rem;
+    font-size: min( max(13px, 4.2vw), 20px );
+    color: #ffffff77;
+    margin-right: 3vw;
+    float: right;
+
+}
+
+.card-item-header-right {
+    height: min( max(16px, 4.6vw), 22px );
+    width: 3.2rem;
+    font-size: min( max(13px, 4.2vw), 20px );
+    color: #ffffff77;
+    margin-right: 3%;
+    margin-left: 2%;
+}
+
+
+.card-item-right-text {
+    width: 3.2rem;
+    text-align: center;
+    
+}
+
+.card-item-right-button {
+    width: 3.2rem;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 300;
+    
+
+}
+
+.divider {
+    padding: 20% 20% 5% 20%;
+    color: #ffffff66;
+}
+
+.card-item-class {
+    --background: #ffffff00;
+    --border-color: #00000000;
+
+    --inner-padding-top: 0px;
+    --inner-padding-bottom: 0px;
+    --padding-top: 0px;
+    --padding-bottom: 0px;
+    width: 100%;
+    --min-height: calc(min( max(16px, 4.6vw), 22px ) + 20px);
+
+}
+
+.card-item-header-class {
+    --background: #ffffff00;
+    --border-color: #00000000;
+
+    --inner-padding-bottom: 4%;
+    --inner-padding-top: 4%;
+    --padding-top: 0px;
+    --padding-bottom: 0px;
+    width: 100%
+}
+
+
+
+.card-item-selected {
+    --background: #ffffff11;
+}
+
+.on-selected {
+    position: absolute;
+    right: 50px;
+    width: 120vw;
+    height: 100%;
+
+}

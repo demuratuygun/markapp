@@ -1,0 +1,65 @@
+.score-value-wrap {
+  position: absolute;
+  top: calc(33vw + 20px);
+  margin: 1% 5%;
+  left: 0;
+  width: 90%;
+  height: 40px;
+  z-index: 1000;
+  color: #ffffff88;
+}
+
+.score-value {
+  position: absolute;
+  width: 2em;
+  text-align: center;
+  top: 0;
+  font-size: 3.6vw;
+  font-weight: 800;
+  color: #ffffff33;
+}
+
+.percentage-wrap {
+  position: absolute;
+  top: calc(5vw + 20px);
+  margin: 6px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  z-index: 1000;
+}
+
+.percentage {
+  position: absolute;
+  top: 0;
+  left: 10vw;
+  font-size: 7vw;
+  font-weight: 800;
+  color: #EAD3F377;
+}
+
+.svg-frame{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  margin: 1% 5%;
+  padding: 5%;
+  z-index: 900;
+}
+
+.item-graph-class {
+  padding: 0px;
+  margin: 0px;
+  position: relative;
+  overflow: hidden;
+  background-color: #292B2900;
+  --ion-item-background: #292B2900;
+  --ion-item-border-color: #292B2900;
+  --ion-overlay-background-color: #292B2900;
+  --inner-padding-top: 0px;
+  --inner-padding-bottom: 0px;
+  --padding-top: 0px;
+  --padding-bottom: 0px;
+  z-index: 800;
+
+}

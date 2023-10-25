@@ -1,4 +1,5 @@
 import { Redirect, Route } from 'react-router-dom';
+import { useState } from 'react';
 import {
   IonApp,
   IonIcon,
@@ -10,10 +11,11 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
-import Tab1 from './pages/Tab1';
-import Tab2 from './pages/Tab2';
-import Tab3 from './pages/Tab3';
+import { people, library, bookmark, time } from 'ionicons/icons';
+import TimePage from './pages/TimePage';
+import MarksPage from './pages/MarksPage';
+import BooksPage from './pages/BooksPage';
+import GroupPage from './pages/GroupPage';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -36,41 +38,49 @@ import './theme/variables.css';
 
 setupIonicReact();
 
-const App: React.FC = () => (
+const App: React.FC = () => {
+  const [selectedTab, setSelectedTab] = useState('time');
+
+
+
+  return (
   <IonApp>
     <IonReactRouter>
-      <IonTabs>
+      <IonTabs onIonTabsDidChange={(e) => setSelectedTab(e.detail.tab)}>
         <IonRouterOutlet>
-          <Route exact path="/tab1">
-            <Tab1 />
+          <Route exact path="/time">
+            <TimePage />
           </Route>
-          <Route exact path="/tab2">
-            <Tab2 />
+          <Route exact path="/marks">
+            <MarksPage />
           </Route>
-          <Route path="/tab3">
-            <Tab3 />
+          <Route path="/books">
+            <BooksPage />
+          </Route>
+          <Route path="/group">
+            <GroupPage />
           </Route>
           <Route exact path="/">
             <Redirect to="/tab1" />
           </Route>
         </IonRouterOutlet>
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon aria-hidden="true" icon={triangle} />
-            <IonLabel>Tab 1</IonLabel>
+        <IonTabBar selectedTab="time" mode="md" slot="bottom" style={{padding: "0px 8%"}}>
+          <IonTabButton tab="time" href="/time">
+            <IonIcon aria-hidden="true" icon={time} />
           </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon aria-hidden="true" icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
+          <IonTabButton tab="marks" href="/marks" >
+            <IonIcon aria-hidden="true" icon={bookmark} />
           </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon aria-hidden="true" icon={square} />
-            <IonLabel>Tab 3</IonLabel>
+          <IonTabButton tab="books" href="/books">
+            <IonIcon aria-hidden="true" icon={library}/>
+          </IonTabButton>
+          <IonTabButton tab="groups" href="/group">
+            <IonIcon aria-hidden="true" icon={people}/>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
     </IonReactRouter>
   </IonApp>
-);
+)};
 
 export default App;

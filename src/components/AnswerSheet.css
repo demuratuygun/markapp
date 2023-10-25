@@ -1,0 +1,77 @@
+.cardBack {
+    background-color: #303030;
+    border-radius: 17px;
+    width: 242px;
+    padding-top: 16px;
+    padding-bottom: 14px;
+    box-shadow: 0px 12px 12px #1d1d1d;
+}
+
+.bookmark {
+    position: absolute;
+    padding: 10px;
+    left: calc(50% + 140px);
+    color: #eeeeee33;
+    font-size: 20px;
+}
+
+.pageNum {
+    position: absolute;
+    padding: 9px;
+    left: calc(50% - 166px);
+    color: #ffffff33;
+    font-weight: 600;
+    font-size: 18px;
+    float: right;
+    letter-spacing: 1px;
+}
+
+.questNum {
+    float: left;
+    width: 28px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding-right: 4px;
+    font-size: 17px;
+    color: #ffffff33;
+    font-weight: 800;
+}
+
+.optionWrap {
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+}
+
+.optionBack {
+    background-color: #E0E0E0dd;
+    border-radius: 14px;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3E3E3E88;
+
+}
+
+.ion-fab-option-button {
+    --background: #ffffff33;
+    --background-activated: #ffffff33;
+    --background-hover: #ffffff33;
+    --border-radius: 13px;
+    --box-shadow:0px 0px 0px #ffffff00;
+    --color: #3E3E3E88;
+    width: 34px;
+    height: 34px;
+    margin: 3px;
+}
+
