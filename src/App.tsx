@@ -8,6 +8,7 @@ import {
   IonTabBar,
   IonTabButton,
   IonTabs,
+  createAnimation,
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
@@ -35,19 +36,35 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import PlaylistPage from './components/playlist/PlaylistComponent';
 
 setupIonicReact();
 
 const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState('time');
 
-
+  const slideAnimation = (baseEl: HTMLElement, opts: any) => {
+    const enteringAnimation = createAnimation()
+      .addElement(opts.enteringEl)
+      .fromTo('transform', 'translateX(100%)', 'translateX(0)')
+      .duration(300)
+      .easing('ease-out');
+  
+    const leavingAnimation = createAnimation()
+      .addElement(opts.leavingEl)
+      .fromTo('transform', 'translateX(0)', 'translateX(-100%)')
+      .duration(300)
+      .easing('ease-in');
+  
+    return createAnimation().addAnimation([enteringAnimation, leavingAnimation]);
+  };
+  
 
   return (
   <IonApp>
     <IonReactRouter>
       <IonTabs onIonTabsDidChange={(e) => setSelectedTab(e.detail.tab)}>
-        <IonRouterOutlet>
+        <IonRouterOutlet animation={slideAnimation}>
           <Route exact path="/time">
             <TimePage />
           </Route>
@@ -61,7 +78,7 @@ const App: React.FC = () => {
             <GroupPage />
           </Route>
           <Route exact path="/">
-            <Redirect to="/tab1" />
+            <Redirect to="/time" />
           </Route>
         </IonRouterOutlet>
         <IonTabBar selectedTab="time" mode="md" slot="bottom" style={{padding: "0px 8%"}}>

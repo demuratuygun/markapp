@@ -3,7 +3,7 @@ import {
     ItemReorderEventDetail, IonReorderGroup, IonReorder, 
     IonList, IonItem, IonLabel, IonDatetime, IonFooter, IonToolbar, IonTitle,
     IonGrid, IonRow, IonCol, IonModal, IonActionSheet,
-    IonIcon, IonDatetimeButton, IonTabBar, IonButton, IonFabButton, createAnimation, IonRippleEffect } from '@ionic/react';
+    IonIcon, IonDatetimeButton, IonTabBar, IonButton, IonFabButton, createAnimation, IonRippleEffect, IonAccordion, IonAccordionGroup } from '@ionic/react';
 import type { Animation } from '@ionic/react';
 
 import { useState, useEffect, useCallback, useRef } from 'react';
@@ -97,6 +97,7 @@ const ListComponent: React.FC<ContainerProps> = ({ mode, head, list, dateMode, o
 
 
 
+
   return (
     <div>
 
@@ -144,10 +145,10 @@ const ListComponent: React.FC<ContainerProps> = ({ mode, head, list, dateMode, o
                 <div className='item-right-button' id={"datetime-button-"+i}>
                   { item.right }<IonRippleEffect></IonRippleEffect>
                 </div>
-              <IonModal color="dark" trigger={"datetime-button-"+i} id={"datepicker-modal:"+i}>
-                <IonDatetime mode="md"
+              <IonModal color="dark" trigger={"datetime-button-"+i} id={"datepicker-modal:"+i} >
+                <IonDatetime mode="md"  className='calendar-day'
                   locale="tr-RT" 
-                  style={{width: dateMode? "300px":"180px", margin: dateMode? "0px":"00px" }}
+                  style={{width: dateMode? "300px":"180px", margin: dateMode? "0px":"00px", paddingTop: "4%" }}
                   hourCycle="h23"
                   color="leaf"
                   presentation={dateMode? "date":"time"}
@@ -156,6 +157,7 @@ const ListComponent: React.FC<ContainerProps> = ({ mode, head, list, dateMode, o
                   onIonChange={(e:any) => changeDate(e.detail.value, i)}
                 />
                 <IonItem button mode="md" color="dark">esnek birak</IonItem>
+                <IonItem button mode="md" color="dark">atla</IonItem>
               </IonModal>
               </div>
               : 
@@ -168,7 +170,8 @@ const ListComponent: React.FC<ContainerProps> = ({ mode, head, list, dateMode, o
           </div>
         </IonItem>
         )
-      )}  
+      )} 
+
       </IonReorderGroup>
 
 
@@ -201,7 +204,13 @@ const ListComponent: React.FC<ContainerProps> = ({ mode, head, list, dateMode, o
             },
           },
           {
-            text: 'Share',
+            text: 'birden cok sec',
+            data: {
+              action: 'share',
+            },
+          },
+          {
+            text: 'tarih saat degistir',
             data: {
               action: 'share',
             },

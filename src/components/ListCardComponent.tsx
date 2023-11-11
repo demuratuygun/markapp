@@ -121,17 +121,17 @@ const ListCardComponent: React.FC<ContainerProps> = ({ onClicked, header, child 
       <IonReorderGroup disabled={false} onIonItemReorder={handleReorder}>
 
         { listItems.map((item, i) => renderItem(item, i+1))}
-
+        
         { edit?
-        <IonItem button={true} className='itemClass'>
-          <IonGrid>
-            <IonRow>
-              <IonCol className='mainList'>
-                <div className='descriptionListText' style={{ fontSize: 20 }}> +etkinlik ekle </div>
-              </IonCol>
-            </IonRow>
-          </IonGrid>
-        </IonItem> : null
+          <IonItem button={true} className='itemClass'>
+            <IonGrid>
+              <IonRow>
+                <IonCol className='mainList'>
+                  <div className='descriptionListText' style={{ fontSize: 20 }}> +etkinlik ekle </div>
+                </IonCol>
+              </IonRow>
+            </IonGrid>
+          </IonItem> : null
         }
 
       </IonReorderGroup>

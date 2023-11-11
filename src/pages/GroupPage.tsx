@@ -1,10 +1,9 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, createAnimation } from '@ionic/react';
 import { useState, useEffect, useCallback, useRef } from 'react';
 
-import TimerComponent from '../components/TimerComponent';
-import AnswerSheet from '../components/AnswerSheet';
+import AnswerSheet from '../components/playlist/AnswerSheet';
 import type { Animation } from '@ionic/react';
-import DistributionComponent from '../components/DistributionComponent';
+import DistributionComponent from '../components/charts/DistributionComponent';
 
 const GroupPage: React.FC = () => {
 
@@ -19,7 +18,7 @@ const GroupPage: React.FC = () => {
       <IonContent fullscreen>
         
         
-        
+
       </IonContent>
     </IonPage>
   );

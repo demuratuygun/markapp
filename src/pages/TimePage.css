@@ -13,3 +13,26 @@
   --color: #E6E6E6;
   box-shadow: 0px 0px 0px #ffffff00;
 }
+
+.calendar-card {
+  --background: #ffffff11;
+  border-radius: 12px;
+  margin: 3.5% 3%;
+
+}
+
+.sack-header {
+  width: 100%;
+  padding: 20px 0px 10px 0px;
+  text-align: center;
+  font-size: 21px;
+
+}
+
+.sack-fab {
+  font-weight: 800;
+  font-size: 16px;
+  position: fixed;
+  bottom: 0px;
+  right: 20px;
+}

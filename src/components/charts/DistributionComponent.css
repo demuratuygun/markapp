@@ -13,7 +13,6 @@
   position: absolute;
   width: 2em;
   text-align: center;
-  top: 0;
   font-size: 3.6vw;
   font-weight: 800;
   color: #ffffff33;
@@ -35,15 +34,13 @@
   left: 10vw;
   font-size: 7vw;
   font-weight: 800;
-  color: #EAD3F377;
+  color: #BDBDBD55;
 }
 
-.svg-frame{
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  margin: 1% 5%;
-  padding: 5%;
+.svg-frame {
+  padding: 0;
+  margin: 0;
+  height: 100%;
   z-index: 900;
 }
 
@@ -52,10 +49,10 @@
   margin: 0px;
   position: relative;
   overflow: hidden;
-  background-color: #292B2900;
-  --ion-item-background: #292B2900;
-  --ion-item-border-color: #292B2900;
-  --ion-overlay-background-color: #292B2900;
+  background-color: #00000000;
+  --ion-item-background: #00000000;
+  --ion-item-border-color: #00000000;
+  --ion-overlay-background-color: #00000000;
   --inner-padding-top: 0px;
   --inner-padding-bottom: 0px;
   --padding-top: 0px;
@@ -63,3 +60,5 @@
   z-index: 800;
 
 }
+
+

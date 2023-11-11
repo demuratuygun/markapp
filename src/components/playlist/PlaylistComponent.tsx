@@ -1,20 +1,14 @@
-import { IonAccordion, IonAccordionGroup, IonCard, IonCol, IonContent, IonFab, IonFabButton, IonFooter, IonGrid, IonHeader, IonIcon, IonItem, IonLabel, IonModal, IonPage, IonRange, IonRouterLink, IonRow, IonTitle, IonToolbar } from '@ionic/react';
+import { IonAccordion, IonAccordionGroup, IonCard, IonCol, IonContent, IonFabButton, IonFooter, IonGrid, IonHeader, IonIcon, IonItem, IonLabel, IonModal, IonPage, IonRange, IonRouterLink, IonRow, IonTitle, IonToolbar } from '@ionic/react';
 
-import CalendarComponent from '../components/CalendarComponent';
-import ListComponent from '../components/ListComponent';
-import TimerComponent from '../components/playlist/TimerComponent';
-import './TimePage.css';
+import ListComponent from '../ListComponent';
+import TimerComponent from './TimerComponent';
 import { useEffect, useRef, useState } from 'react';
-import { arrowBackOutline, closeOutline, playSkipForward, playSkipBack, add } from 'ionicons/icons';
-import AnswerSheet from '../components/playlist/AnswerSheet';
-import DistributionComponent from '../components/charts/DistributionComponent';
+import {  closeOutline, playSkipForward, playSkipBack } from 'ionicons/icons';
+import AnswerSheet from './AnswerSheet';
 
-import { useHistory } from 'react-router';
-import { AnimationBuilder, createAnimation } from '@ionic/react';
-import BookListComponent from '../components/BookListComponent';
-import PlaylistPage from '../components/playlist/PlaylistComponent';
-
-
+interface ContainerProps {
+  exit: Function;
+}
 
 type item = {
   header:string;
@@ -31,26 +25,18 @@ type item = {
 
 
 
-const TimePage: React.FC = () => {
+const PlaylistPage: React.FC<ContainerProps> = ({ exit }) => {
 
   const toPlaylistPage = useRef<HTMLIonRouterLinkElement>(null!);
+  const contentRef = useRef<HTMLIonContentElement | null>(null);
 
   const [tasks, setTasks] = useState<item[]>([]);
   const [playlist, setPlaylist] = useState<item[]>([]);
-
-  const [expandedItem, setExpandedItem] = useState(-1);
-  const [calenderExpanded, setCalenderExpanded] = useState(false);
-  const [sackOpen, setSackOpen] = useState(true);
-
   const [timer, setTimer] = useState<number>(0);
   
   
 
-
-
   useEffect(() => {
-
-    
 
     // api call for daily tasks if not exisits in local
     setTasks([
@@ -63,9 +49,7 @@ const TimePage: React.FC = () => {
     //updateTime();
     durationText();
 
-
   }, []);
-
 
   
   function onItemClick(i:number, sub?:number) {
@@ -78,11 +62,12 @@ const TimePage: React.FC = () => {
         { left: "142", header: "Test 5 zor", shedule: new Date("10/1/2023, 14:00:00 PM"), duration: 14 },
       ]));
     
-    setExpandedItem(i);
+    //setTimer(0);
+    toPlaylistPage.current.click();
 
 
   }
-  const contentRef = useRef<HTMLIonContentElement | null>(null);
+  
 
   // converts duration to right text on tasks list
   function durationText() {
@@ -136,52 +121,56 @@ const TimePage: React.FC = () => {
   }
 
 
-  
-
-
-
-
   return (
     <IonPage>
       
-      <IonContent fullscreen>
-        
-        <div style={{backgroundColor: "#333333"}} className={calenderExpanded?'fixed-header':''} >
-          <CalendarComponent expanded={(is:boolean)=>setCalenderExpanded(is)} />
-        </div>
+      <IonContent ref={contentRef} scrollEvents={true}>
 
-        <div style={{ marginTop: "3vh" }}>
-          <BookListComponent mode="" list={tasks} 
-            changeDate={changeDate}
-            onClick={onItemClick}
-            onReorder={changeOrder}
+        <div style={{ overflowY: "scroll", width:"100vw", height: "100%", position: "relative" }}>
+
+        <IonIcon icon={closeOutline} onClick={()=> exit()} 
+          style={{ position: "absolute", top: "4%", right: "8%", fontSize: "32px", color: "#505050", zIndex: 1000 }} 
+        ></IonIcon>
+          
+          <ListComponent mode="" dateMode changeDate={changeDate} onClick={onItemClick} onReorder={changeOrder}
+            list={[
+              { header: "MY Matematik 2", description: [{text: "Trigonometri, 132-141"}], selected: false, child: [
+                { left: "129", header: "Test 1 kolay", right: "04:50", shedule: new Date("10/1/2023, 11:20:00 AM"), duration: 18, fixed: true },
+                { left: "132", header: "Test 2 kolay", right: "04:50", shedule: new Date("10/1/2023, 12:40:00 AM"), duration: 14, selected: true },
+                { left: "134", header: "Test 3 orta", right: "04:50", shedule: new Date("10/1/2023, 13:10:00 PM"), duration: 17 },
+                { left: "139", header: "Test 4 zor", right: "04:50", shedule: new Date("10/1/2023, 14:00:00 PM"), duration: 12 },
+                { left: "142", header: "Test 5 zor", right: "04:50", shedule: new Date("10/1/2023, 14:00:00 PM"), duration: 14 }
+              ]},
+            ]}
           />
+
+          <div onClick={()=> contentRef.current?.scrollToTop(500)} className='fixed-header'
+            style={{margin: "45px 0px 20px 0px", zIndex:999, backgroundColor: "#1D1F1Daa", backdropFilter: "blur(5px)"}}>
+            <TimerComponent completed={timer} onComplete={()=>{}} pickTime={(t:number)=> setTimer(t)}/>
+          </div>
+          
+          <div style={{marginTop: "16%", marginBottom: "16%"}}>
+            <AnswerSheet page={132} mode="answer"></AnswerSheet>
+          </div>
+          
+          <div style={{ width: "100%", height: "80px"}}>
+            <IonIcon icon={playSkipForward} onClick={()=> {setTimer(-1);}}
+              style={{ float: "right", padding: "20px", paddingRight: "30px", fontSize: "32px", color: "#444444" }} 
+            />
+            <IonIcon icon={playSkipBack} onClick={()=> {setTimer(-1);}}
+              style={{ float: "left", padding: "20px", paddingLeft: "30px", fontSize: "32px", color: "#444444" }} 
+            />
+            <div style={{ float: "right", padding: "20px", paddingRight: "0px", fontSize: "24px", color: "#555555"  }}>sonraki test</div>
+            
+          </div>
+
+
         </div>
-
-          <IonFabButton className='sack-fab' size='small' onClick={()=>setSackOpen(true)} >
-            2
-          </IonFabButton>
-
-      </IonContent>
-
-
-      <IonModal isOpen={sackOpen} onIonModalDidDismiss={()=>setSackOpen(false)} initialBreakpoint={0.9} breakpoints={[ 0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.9]}>
-        <IonContent>
-          <div className='sack-header'>merhaba</div>
-          <BookListComponent mode="" list={tasks} 
-            changeDate={changeDate}
-            onClick={onItemClick}
-            onReorder={changeOrder}/>
         </IonContent>
-      </IonModal>
-
-      <IonModal isOpen={expandedItem>=0} >
-        <PlaylistPage exit={()=> setExpandedItem(-1)}/>
-      </IonModal>
 
 
     </IonPage>
   );
 };
 
-export default TimePage;
+export default PlaylistPage;

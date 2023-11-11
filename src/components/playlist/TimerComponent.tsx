@@ -5,9 +5,9 @@ import { play, pause, closeCircle, pauseCircle, playCircle, stopCircle } from 'i
 import { useState, useEffect, useCallback } from 'react';
 
 import './TimerComponent.css';
-import NumpadComponent from './NumpadComponent';
+import NumpadComponent from '../NumpadComponent';
 
-type RGBColor = { r: number, g: number, b: number };
+
 
 interface ContainerProps {
   completed?:number;
@@ -93,28 +93,11 @@ const TimerComponent: React.FC<ContainerProps> = ({completed=0, pickTime, onComp
       setPlaying( 0 );
     }
   }
-
-  function generateTransitionTones(steps: number): RGBColor[] {
-    let color1: RGBColor = {r: 160, g: 255, b: 220};
-    let color2: RGBColor = {r: 255, g: 192, b: 225}
-    let stepFactor = 1 / (steps - 1);
-    let interpolatedColorArray: RGBColor[] = [];
-  
-    for(let i = 0; i < steps; i++) {
-      interpolatedColorArray.push({
-        r: Math.round(color1.r + (color2.r - color1.r) * stepFactor * i),
-        g: Math.round(color1.g + (color2.g - color1.g) * stepFactor * i),
-        b: Math.round(color1.b + (color2.b - color1.b) * stepFactor * i)
-      });
-      
-    }
-
-    return interpolatedColorArray;
-  }
   
 
 
   return (
+
     <div style={{margin: "0%", backgroundColor: "#67590"}}>
       <IonGrid>
 
@@ -122,8 +105,7 @@ const TimerComponent: React.FC<ContainerProps> = ({completed=0, pickTime, onComp
           <IonCol style={{display: "flex", justifyContent: "center"}}>
             <div className='timer-container'  onClick={() => onPick()}>
               { Math.floor(timer/6000)>0? 
-                <div className='num-box'>{Math.floor(timer/6000)%10}</div> : null
-              }
+                <div className='num-box'>{Math.floor(timer/6000)%10}</div> : null }
               <div className='num-box'>{Math.floor(timer/600)%10}</div>
               <div className='num-box'>{`${Math.floor(timer/60)%10}`}</div>
               <div style={{ width: "52px", float: "left"}}>

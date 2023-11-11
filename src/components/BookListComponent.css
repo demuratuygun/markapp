@@ -1,0 +1,41 @@
+.book-text-container {
+    width: 100%;
+    margin-right: 4%;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.cover-item {
+    --background: #ffffff00;
+    --border-color: #00000000;
+    --inner-padding-top: 10px;
+    --inner-padding-bottom: 10px;
+    --padding-top: 4px;
+    --padding-bottom: 4px;
+}
+
+.book-cover-image {
+    width: 114px;
+    margin: 0% 5% 0% 3%;
+    white-space: nowrap;
+    z-index: 300;
+}
+
+.book-text {
+    color: #ffffff;
+    font-size: min( max(16px, 4.6vw), 22px );
+    font-weight: light;
+    white-space: nowrap;
+    padding-top: 2px;
+}
+
+.book-subtext {
+    color: #8e8e8aaa;
+    font-weight: medium;
+    font-size: min( max(13px, 4.2vw), 20px );
+    white-space: nowrap;
+}
+
+ion-img::part(image) {
+    border-radius: 11px;
+  }

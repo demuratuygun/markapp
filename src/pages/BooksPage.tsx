@@ -1,11 +1,12 @@
 import { IonContent, IonHeader, IonIcon, IonItem, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import TimerComponent from '../components/TimerComponent';
 import './BooksPage.css';
-import AnswerSheet from '../components/AnswerSheet';
+
 import ListComponent from '../components/ListComponent';
-import DistributionComponent from '../components/DistributionComponent';
+import DistributionComponent from '../components/charts/DistributionComponent';
 import { useEffect, useRef } from 'react';
 import { alertCircle, arrowRedo, calendarClear } from 'ionicons/icons';
+import LinechartComponent from '../components/charts/LinechartComponent';
+import HeatmapComponent from '../components/charts/HeatmapComponent';
 
 
 
@@ -44,9 +45,6 @@ const BooksPage: React.FC = () => {
   ]
 
 
-  
-
-
 
 
   return (
@@ -54,7 +52,10 @@ const BooksPage: React.FC = () => {
 
       <IonContent ref={contentRef} scrollEvents={true} fullscreen>
       
-        <DistributionComponent scores={[120, 391, 493]} cut={10} percent={19} color="#F0C5FF" />
+        {/* <HeatmapComponent scores={[120, 391, 493]} cut={10} percent={19} color="#F0C5FF"
+          data={[ 310, 330,320, 380, 350, 370, 370, 390, 410 ]} /> */}
+        <LinechartComponent scores={[120, 391, 493]} cut={10} percent={19} color="#F0C5FF"
+          data={[ 310, 330,320, 380, 350, 370, 370, 390, 410 ]} />
 
         <div className='publisher-header'>Karekok 2023</div>
         <div className='fixed-header book-header-class' onClick={()=>contentRef.current?.scrollToTop(500)}>
