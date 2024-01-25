@@ -31,15 +31,15 @@ const BooksPage: React.FC = () => {
 
   let thelist:item[] = [
     { header: "Fizik Bilimine Giriş", left: "12", right: "12/04", shedule: new Date("10/1/2023, 11:20:00 AM"), estimete: 40, fixed: true, },
-    { header: "Madde ve Özellikleri", left: "52", right: "12/04", shedule: new Date("10/1/2023, 12:40:00 AM"),  },
+    { header: "Madde ve Özellikleri", left: "52", right: "12/04", shedule: new Date("10/1/2023, 12:40:00 AM"), },
     { header: "Sıvıların Kaldırma Kuvveti", left: "83", right: "12/04", shedule: new Date("10/1/2023, 13:10:00 PM"), fixed: false, selected: false },
     { header: "Basınç", left: "112", right: "12/04", shedule: new Date("10/1/2023, 14:00:00 PM"), fixed: false },
     { header: "Isı, Sıcaklık ve Genleşme", left: "138", right: "12/04", shedule: new Date("10/1/2023, 11:20:00 AM"), estimete: 40, fixed: false,},
-    { header: "Hareket ve Kuvvet", left: "182", right: "12/04", shedule: new Date("10/1/2023, 12:40:00 AM"),  },
+    { header: "Hareket ve Kuvvet", left: "182", right: "12/04", shedule: new Date("10/1/2023, 12:40:00 AM"), },
     { header: "Dinamik", left: "210", right: "12/04", shedule: new Date("10/1/2023, 13:10:00 PM"), fixed: false, selected: false },
     { header: "İş, Güç ve Enerji", left: "243", right: "12/04", shedule: new Date("10/1/2023, 14:00:00 PM"), fixed: false },
     { header: "Elektrik ve Manyetizma", left: "278", right: "12/04", shedule: new Date("10/1/2023, 11:20:00 AM"), estimete: 40, fixed: false,},
-    { header: "Elektrostatik", left: "293", right: "12/04", shedule: new Date("10/1/2023, 12:40:00 AM"),  },
+    { header: "Elektrostatik", left: "293", right: "12/04", shedule: new Date("10/1/2023, 12:40:00 AM"), },
     { header: "Dalgalar", left: "327", right: "12/04", shedule: new Date("10/1/2023, 13:10:00 PM"), fixed: false, selected: false },
     { header: "Optik", left: "354", right: "12/04", shedule: new Date("10/1/2023, 14:00:00 PM"), fixed: false },
   ]

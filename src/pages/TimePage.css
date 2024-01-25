@@ -1,3 +1,16 @@
+
+.timeHeaderBar {
+  background-color: #222222bb;
+  backdrop-filter: blur(9px);
+  padding: 2vh 3vh;
+  width: 100%;
+  font-size: min( max(20px, 5.6vw), 32px );
+  position: absolute;
+  top:0;
+  z-index:1001
+}
+
+
 .fixed-header {
  position: sticky;
   top: 0;
@@ -23,9 +36,8 @@
 
 .sack-header {
   width: 100%;
-  padding: 20px 0px 10px 0px;
-  text-align: center;
-  font-size: 21px;
+  padding: 26px 0px 20px 3vh;
+  font-size: 32px;
 
 }
 
@@ -33,6 +45,6 @@
   font-weight: 800;
   font-size: 16px;
   position: fixed;
-  bottom: 0px;
-  right: 20px;
+  top: 0px;
+  right: 0px;
 }

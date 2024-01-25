@@ -23,10 +23,10 @@
 
 .book-text {
     color: #ffffff;
-    font-size: min( max(16px, 4.6vw), 22px );
+    font-size: min( max(16px, 4.2vw), 24px );
     font-weight: light;
     white-space: nowrap;
-    padding-top: 2px;
+    padding-bottom: 3px;
 }
 
 .book-subtext {
@@ -34,8 +34,17 @@
     font-weight: medium;
     font-size: min( max(13px, 4.2vw), 20px );
     white-space: nowrap;
+    padding-bottom: 2px;
+}
+
+.book-resume-text {
+    color: #6EF4B4bb;
+    font-weight: bold;
+    font-size: min( max(13px, 4vw), 18px );
+    white-space: nowrap;
+    padding-left: 3px;
 }
 
 ion-img::part(image) {
     border-radius: 11px;
-  }
+}

@@ -1,11 +1,11 @@
-import { IonAccordion, IonAccordionGroup, IonCard, IonCol, IonContent, IonFab, IonFabButton, IonFooter, IonGrid, IonHeader, IonIcon, IonItem, IonLabel, IonModal, IonPage, IonRange, IonRouterLink, IonRow, IonTitle, IonToolbar } from '@ionic/react';
+import { IonAccordion, IonAccordionGroup, IonCard, IonCol, IonContent, IonFab, IonFabButton, IonFooter, IonGrid, IonHeader, IonIcon, IonItem, IonLabel, IonModal, IonPage, IonRange, IonRippleEffect, IonRouterLink, IonRow, IonTitle, IonToolbar, ScrollDetail } from '@ionic/react';
 
 import CalendarComponent from '../components/CalendarComponent';
 import ListComponent from '../components/ListComponent';
 import TimerComponent from '../components/playlist/TimerComponent';
 import './TimePage.css';
 import { useEffect, useRef, useState } from 'react';
-import { arrowBackOutline, closeOutline, playSkipForward, playSkipBack, add } from 'ionicons/icons';
+import { arrowBackOutline, closeOutline, playSkipForward, playSkipBack, add, construct } from 'ionicons/icons';
 import AnswerSheet from '../components/playlist/AnswerSheet';
 import DistributionComponent from '../components/charts/DistributionComponent';
 
@@ -14,7 +14,11 @@ import { AnimationBuilder, createAnimation } from '@ionic/react';
 import BookListComponent from '../components/BookListComponent';
 import PlaylistPage from '../components/playlist/PlaylistComponent';
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
+import { motion, useScroll, useTransform } from "framer-motion";
 
 type item = {
   header:string;
@@ -40,12 +44,10 @@ const TimePage: React.FC = () => {
 
   const [expandedItem, setExpandedItem] = useState(-1);
   const [calenderExpanded, setCalenderExpanded] = useState(false);
-  const [sackOpen, setSackOpen] = useState(true);
+  const [sackOpen, setSackOpen] = useState(false);
 
   const [timer, setTimer] = useState<number>(0);
-  
-  
-
+  const [condanseHeader, setCondanseHeader] = useState<boolean>(false);
 
 
   useEffect(() => {
@@ -135,19 +137,47 @@ const TimePage: React.FC = () => {
     //updateTime();
   }
 
+  function handleScroll(ev: CustomEvent<ScrollDetail>) {
+    setCondanseHeader(ev.detail.scrollTop < 10 ? false : true );
+  }
 
-  
-
+  function handleSlide(index:number) {
+    console.log(
+      `Slider Changed to: ${index + 1}`
+    );
+  }
 
 
 
   return (
     <IonPage>
       
-      <IonContent fullscreen>
+      <IonHeader>
+        <motion.div className='timeHeaderBar'>
+          <div style={{float:"left", fontWeight: "bold"}}>02 Şubat</div>
+          <div style={{float:"right" }} onClick={()=>setSackOpen(true)}>hafta 37</div>  
+          {condanseHeader?null:<><br/><div style={{float:"left", color: "#606060" }}> 271 dk </div></>}
+        </motion.div>
+      </IonHeader>
+
+      <IonContent fullscreen scrollEvents={true} onIonScroll={handleScroll}>
+
+        <div style={{ paddingTop: "12vh" }}></div>
         
+        {/* 
         <div style={{backgroundColor: "#333333"}} className={calenderExpanded?'fixed-header':''} >
           <CalendarComponent expanded={(is:boolean)=>setCalenderExpanded(is)} />
+        </div>
+         */}
+
+        <Slider dots={false} infinite={false} afterChange={handleSlide}>
+
+        <div style={{ marginTop: "3vh", height:"100vh" }}>
+          <BookListComponent mode="" list={tasks} 
+            changeDate={changeDate}
+            onClick={onItemClick}
+            onReorder={changeOrder}
+          />
         </div>
 
         <div style={{ marginTop: "3vh" }}>
@@ -158,16 +188,56 @@ const TimePage: React.FC = () => {
           />
         </div>
 
-          <IonFabButton className='sack-fab' size='small' onClick={()=>setSackOpen(true)} >
-            2
-          </IonFabButton>
+        <div style={{ marginTop: "3vh" }}>
+          <BookListComponent mode="" list={tasks} 
+            changeDate={changeDate}
+            onClick={onItemClick}
+            onReorder={changeOrder}
+          />
+        </div>
+
+        <div style={{ marginTop: "3vh" }}>
+          <BookListComponent mode="" list={tasks} 
+            changeDate={changeDate}
+            onClick={onItemClick}
+            onReorder={changeOrder}
+          />
+        </div>
+
+        <div style={{ marginTop: "3vh" }}>
+          <BookListComponent mode="" list={tasks} 
+            changeDate={changeDate}
+            onClick={onItemClick}
+            onReorder={changeOrder}
+          />
+        </div>
+
+        <div style={{ marginTop: "3vh" }}>
+          <BookListComponent mode="" list={tasks} 
+            changeDate={changeDate}
+            onClick={onItemClick}
+            onReorder={changeOrder}
+          />
+        </div>
+
+        <div style={{ marginTop: "3vh" }}>
+          <BookListComponent mode="" list={tasks} 
+            changeDate={changeDate}
+            onClick={onItemClick}
+            onReorder={changeOrder}
+          />
+        </div>
+
+        </Slider>
+
+          
 
       </IonContent>
 
 
       <IonModal isOpen={sackOpen} onIonModalDidDismiss={()=>setSackOpen(false)} initialBreakpoint={0.9} breakpoints={[ 0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.9]}>
         <IonContent>
-          <div className='sack-header'>merhaba</div>
+          <div className='sack-header'>hafta 37</div>
           <BookListComponent mode="" list={tasks} 
             changeDate={changeDate}
             onClick={onItemClick}
